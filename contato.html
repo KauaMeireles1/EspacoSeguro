@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contato - Espaço Seguro</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fale com a Espaço Seguro</h1>
+    <form id="formulario">
+      <input type="text" id="nome" placeholder="Kauã Meireles" required>
+      <input type="text" id="telefone" placeholder="Seu WhatsApp" required>
+      <textarea id="mensagem" rows="4" placeholder="Quero adquirir esse produto..." required></textarea>
+      <button type="submit">Enviar via WhatsApp</button>
+    </form>
+
+    <a href="index.html">← Voltar ao início</a>
+  </div>
+
+  <script>
+    document.getElementById('formulario').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const tel = document.getElementById('telefone').value;
+      const msg = document.getElementById('mensagem').value;
+
+      const texto = `Olá, meu nome é ${nome}, meu WhatsApp é ${tel}. Mensagem: ${msg}`;
+      const url = `https://wa.me/5511943790678?text=${encodeURIComponent(texto)}`;
+
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>
